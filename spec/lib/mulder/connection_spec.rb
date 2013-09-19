@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Poirot::Connection do
+describe Mulder::Connection do
 
   let(:config) { stub(aws_access_key_id: 'foo', aws_secret_access_key: 'bar') }
   let(:connection) { described_class.new(config) }
@@ -46,13 +46,13 @@ describe Poirot::Connection do
   end
 
   describe "#instances_by_group" do
-    it 'finds the instances for the group and returns Poirot::Instances' do
+    it 'finds the instances for the group and returns Mulder::Instances' do
       mocked_instance = mock(id: 'foo')
       compute_instance = mock
       mocked_group = mock(instances: [mocked_instance])
       connection = described_class.new(config)
       connection.expects(:server_by_instance_id).with('foo').returns(compute_instance)
-      Poirot::Instance.expects(:new).with(compute_instance)
+      Mulder::Instance.expects(:new).with(compute_instance)
       connection.instances_by_group(mocked_group)
     end
   end

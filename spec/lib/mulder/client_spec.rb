@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Poirot::Client do
+describe Mulder::Client do
 
   describe '.initialize' do
     let(:mocked_connection) { mock }

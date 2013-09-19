@@ -1,6 +1,6 @@
 require 'json'
 
-module Poirot
+module Mulder
   class Instance
 
     attr_reader :fog_compute_instance

@@ -1,17 +1,17 @@
-require 'poirot'
+require 'mulder'
 
-module Poirot
+module Mulder
   class Capistrano
 
     def initialize(config_file, application, environment)
-      config       = ::Poirot::Config.from(:yaml, file: config_file)
-      @connection  = ::Poirot::Connection.new(config)
+      config       = ::Mulder::Config.from(:yaml, file: config_file)
+      @connection  = ::Mulder::Connection.new(config)
       @application = application
       @environment = environment
     end
 
     def client(role)
-      @client ||= ::Poirot::Client.new(@connection, @application, @environment, role)
+      @client ||= ::Mulder::Client.new(@connection, @application, @environment, role)
     end
 
     def ips(role, use_private = false)

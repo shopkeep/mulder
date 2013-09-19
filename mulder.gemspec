@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'poirot/version'
+require 'mulder/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'poirot'
-  spec.version       = Poirot::VERSION
+  spec.name          = 'mulder'
+  spec.version       = Mulder::VERSION
   spec.authors       = ['Duncan Grazier']
   spec.email         = ['itsmeduncan@gmail.com']
   spec.description   = %q{Discover information about AWS Autoscaling Groups}
   spec.summary       = %q{Autoscaling groups, and their metadata}
-  spec.homepage      = 'https://www.github.com/shopkeep/poirot'
+  spec.homepage      = 'https://www.github.com/shopkeep/mulder'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)

@@ -1,6 +1,6 @@
 require 'fog'
 
-module Poirot
+module Mulder
   class Connection
 
     attr_reader :config
@@ -18,7 +18,7 @@ module Poirot
     def instances_by_group(group)
       group.instances.collect do |instance|
         compute_instance = server_by_instance_id(instance.id)
-        Poirot::Instance.new(compute_instance)
+        Mulder::Instance.new(compute_instance)
       end
     end
 

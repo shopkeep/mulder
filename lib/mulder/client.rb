@@ -1,4 +1,4 @@
-module Poirot
+module Mulder
   class Client
 
     attr_reader :app, :role, :environment

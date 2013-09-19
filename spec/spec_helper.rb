@@ -2,7 +2,7 @@ require 'simplecov'
 SimpleCov.start
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'poirot'
+require 'mulder'
 require 'mocha/api'
 
 RSpec.configure do |config|
