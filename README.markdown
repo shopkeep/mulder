@@ -20,6 +20,28 @@ Or install it yourself as:
 
 ## Usage
 
+### CLI
+
+To see the web servers for an app, and environment:
+
+    mulder search banana_sandwich production WebServerGroup
+
+Example output:
+
+    [
+        {
+                        :id => "i-ididid",
+                  :dns_name => "web.prod.example.com",
+         :public_ip_address => "1.0.1.0",
+        :private_ip_address => "0.1.0.1",
+                :created_at => 2013-08-08 18:21:05 UTC
+        }
+    ]
+
+To change the configration file:
+
+    mulder search banana_sandwich production WebServerGroup human foo.yml
+
 ### Capistrano
 
 At the top of your `deploy.rb` file, add:
