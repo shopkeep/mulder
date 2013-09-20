@@ -11,7 +11,7 @@ module Mulder
     end
 
     def client(role)
-      @client ||= ::Mulder::Client.new(@connection, @application, @environment, role)
+      @client = ::Mulder::Client.new(@connection, @application, @environment, role)
     end
 
     def ips(role, use_private = false)
