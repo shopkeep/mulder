@@ -2,6 +2,8 @@
 
 A deploy-time helper for your AWS AutoScaling groups, and servers. Discover the IP addresses of your instances by AutoScalingGroup.
 
+[![Build Status](https://travis-ci.org/shopkeep/mulder.png?branch=master)](https://travis-ci.org/shopkeep/mulder)
+
 ## Installation
 
 Add this line to your application's Gemfile:
