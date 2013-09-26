@@ -25,6 +25,10 @@ module Mulder
       @fog_compute_instance.private_ip_address
     end
 
+    def availability_zone
+      @fog_compute_instance.availability_zone
+    end
+
     def vpc_id
       @fog_compute_instance.vpc_id
     end
@@ -39,6 +43,7 @@ module Mulder
         dns_name: dns_name,
         public_ip_address: public_ip_address,
         private_ip_address: private_ip_address,
+        availability_zone: availability_zone,
         vpc_id: vpc_id,
         created_at: created_at
       }.delete_if { |_, value| value == '' || value == nil }
