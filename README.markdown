@@ -34,6 +34,7 @@ Example output:
                   :dns_name => "web.prod.example.com",
          :public_ip_address => "1.0.1.0",
         :private_ip_address => "0.1.0.1",
+         :availability_zone => "us-east-1a",
                 :created_at => 2013-08-08 18:21:05 UTC
         }
     ]
