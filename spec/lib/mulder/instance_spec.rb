@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Mulder::Instance do
 
-  let(:attributes) { { id: "i-f17bf19e", dns_name: 'foo.example.org', public_ip_address: '10.0.0.2', private_ip_address: '10.1.1.1', vpc_id: 'vpc-e9663d87', created_at: DateTime.parse('2013-09-10 19:39:26 UTC').to_s } }
+  let(:attributes) { { id: "i-f17bf19e", dns_name: 'foo.example.org', public_ip_address: '10.0.0.2', private_ip_address: '10.1.1.1', availability_zone: 'us-east-1a', vpc_id: 'vpc-e9663d87', created_at: DateTime.parse('2013-09-10 19:39:26 UTC').to_s } }
 
   describe '.new' do
     it 'stores the fog computer instance' do
