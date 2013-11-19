@@ -20,6 +20,8 @@ module Mulder
         compute_instance = server_by_instance_id(instance.id)
         Mulder::Instance.new(compute_instance)
       end
+    rescue
+      []
     end
 
     def server_by_instance_id(instance_id)
