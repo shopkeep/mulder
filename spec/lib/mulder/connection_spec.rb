@@ -55,6 +55,15 @@ describe Mulder::Connection do
       Mulder::Instance.expects(:new).with(compute_instance)
       connection.instances_by_group(mocked_group)
     end
+
+    context 'when a NoMethodError is raised' do
+      it 'returns an empty array' do
+        mocked_group = mock('group')
+        mocked_group.stubs(:instances).raises(NoMethodError)
+        connection = described_class.new(config)
+        connection.instances_by_group(mocked_group).should == []
+      end
+    end
   end
 
   describe "#server_by_instance_id" do
