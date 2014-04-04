@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'isomer', '~> 0.1.3'
   spec.add_dependency 'thor', '~> 0.18.1'
   spec.add_dependency 'awesome_print', '~> 1.1.0'
+  spec.add_dependency 'unf', '~> 0.1.4'
 end
