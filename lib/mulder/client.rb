@@ -18,11 +18,9 @@ module Mulder
       @connection.instances_by_group(group)
     end
 
-    private
-
-      def id_regexp
-        /^#{@app}-#{@environment}-#{@role}-.*$/i
-      end
+    def id_regexp
+      /^#{@app}-#{@environment}-(.*-)?#{@role}-.*$/i
+    end
 
   end
 end
