@@ -19,7 +19,7 @@ module Mulder
     end
 
     def id_regexp
-      /^#{@app}-#{@environment}-(.*-)?#{@role}-.*$/i
+      /^.*-?#{@app}-#{@environment}-(.*-)?#{@role}-.*$/i
     end
 
   end
