@@ -17,7 +17,7 @@ describe Mulder::Client do
   describe '#group' do
     it 'finds the correct group based on the given attributes' do
       mocked_connection = mock
-      mocked_connection.expects(:group_by_id_regexp).with(/^.*-?foo-bar-(.*-)?WorkerGroup-.*$/i)
+      mocked_connection.expects(:group_by_id_regexp).with(/^foo-bar-(.*-)?WorkerGroup-.*$/i)
       client = described_class.new(mocked_connection, 'foo', 'bar', 'WorkerGroup')
 
       client.group
@@ -47,9 +47,28 @@ describe Mulder::Client do
       'foo-bar-abc123-worker-3'.should match(client.id_regexp)
     end
 
-    it 'matches with a prefixed id' do
-      client = described_class.new(mock, 'foo', 'bar', 'worker')
-      'widget-foo-bar-abd123-worker-8'.should match(client.id_regexp)
+    context 'with prefixed id' do
+      let(:client) { described_class.new(mock, 'widget-foo', 'bar', 'worker') }
+
+      it 'matches the prefixed group' do
+        'widget-foo-bar-abd123-worker-8'.should match(client.id_regexp)
+      end
+
+      it 'does not match the non-prefixed group' do
+        'foo-bar-derp456-worker-99'.should_not match(client.id_regexp)
+      end
+    end
+
+    context 'with non-prefixed id' do
+      let(:client) { described_class.new(mock, 'foo', 'bar', 'worker') }
+
+      it 'does not match the prefixed group' do
+        'widget-foo-bar-abd123-worker-8'.should_not match(client.id_regexp)
+      end
+
+      it 'matches the non-prefixed group' do
+        'foo-bar-derp456-worker-99'.should match(client.id_regexp)
+      end
     end
   end
 
