@@ -2,7 +2,7 @@
 
 A deploy-time helper for your AWS AutoScaling groups, and servers. Discover the IP addresses of your instances by AutoScalingGroup.
 
-[![Build Status](https://travis-ci.org/shopkeep/mulder.png?branch=master)](https://travis-ci.org/shopkeep/mulder)
+[![Build Status](https://travis-ci.org/shopkeep/mulder.png?branch=master)](https://travis-ci.org/shopkeep/mulder) [![Code Climate](https://codeclimate.com/github/shopkeep/mulder/badges/gpa.svg)](https://codeclimate.com/github/shopkeep/mulder)
 
 ## Installation
 
