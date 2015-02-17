@@ -1,11 +1,13 @@
 require_relative 'formats/base'
 require_relative 'formats/human'
+require_relative 'formats/json'
 
 module Mulder
   class Formatter
 
     VALID_FORMATS = {
-      'human' => Formats::Human
+      'human' => Formats::Human,
+      'json'  => Formats::JSON
     }
 
     def initialize(instances, format)
