@@ -11,6 +11,21 @@ describe Mulder::Instance do
     end
   end
 
+  describe '#exists?' do
+    context 'when there is a compute instance' do
+      it 'returns true' do
+        fog_compute_instance = mock
+        described_class.new(fog_compute_instance).should exist
+      end
+    end
+
+    context 'when there no compute instance' do
+      it 'returns false' do
+        described_class.new(nil).should_not exist
+      end
+    end
+  end
+
   describe '#as_hash' do
     let(:instance) { mock(attributes) }
 

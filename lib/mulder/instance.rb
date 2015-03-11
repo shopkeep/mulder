@@ -37,6 +37,10 @@ module Mulder
       @fog_compute_instance.created_at
     end
 
+    def exists?
+      !@fog_compute_instance.nil?
+    end
+
     def as_hash
       @as_hash ||= {
         id: id,
