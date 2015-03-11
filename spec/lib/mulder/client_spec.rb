@@ -25,10 +25,36 @@ describe Mulder::Client do
   end
 
   describe '#instances' do
+    let(:mocked_connection) { mock }
+    let(:mocked_group) { mock }
+    let(:client) { described_class.new(mocked_connection, 'foo', 'bar', 'worker') }
+    let(:instances) { [] }
+
+    before do
+      mocked_connection.stubs(:instances_by_group).with(mocked_group).returns(instances)
+      client.stubs(:group).returns(mocked_group)
+    end
+
+    context 'when there are no unhealthy instances' do
+      let(:instances) {[mock('healthy instance', exists?: true), mock('healthy instance', exists?: true)]}
+
+      it 'returns all instances' do
+        client.instances.size.should == 2
+      end
+    end
+
+    context 'when there are unhealthy instances' do
+      let(:instances) { [mock('healthy instance', exists?: true), mock('unhealthy instance', exists?: false)] }
+
+      it 'returns only the healthy ones' do
+        client.instances.size.should == 1
+      end
+    end
+
     it 'finds the instances for the group' do
       mocked_connection = mock
       mocked_group = mock
-      mocked_connection.expects(:instances_by_group).with(mocked_group)
+      mocked_connection.expects(:instances_by_group).with(mocked_group).returns([])
       client = described_class.new(mocked_connection, 'foo', 'bar', 'worker')
       client.expects(:group).returns(mocked_group)
 

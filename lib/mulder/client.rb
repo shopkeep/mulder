@@ -15,7 +15,7 @@ module Mulder
     end
 
     def instances
-      @connection.instances_by_group(group)
+      @connection.instances_by_group(group).select(&:exists?)
     end
 
     def id_regexp
