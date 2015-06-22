@@ -5,9 +5,11 @@ describe Mulder::Capistrano do
 
   describe '#client' do
     it 'instantiates a new client with the correct role' do
-      mocked_connection = mock
       mocked_config = mock
-      Mulder::Config.expects(:from).returns(mocked_config)
+      Isomer::Sources::Yaml.expects(:new)
+      Isomer::Configuration.expects(:hydrate).returns(mocked_config)
+
+      mocked_connection = mock
       Mulder::Connection.expects(:new).returns(mocked_connection)
 
       capistrano = described_class.new('foo', 'bar', 'widget')
@@ -19,9 +21,11 @@ describe Mulder::Capistrano do
 
   describe '.ips' do
     it 'it returns the public ips for the client' do
-      mocked_connection = mock
       mocked_config = mock
-      Mulder::Config.expects(:from).returns(mocked_config)
+      Isomer::Sources::Yaml.expects(:new)
+      Isomer::Configuration.expects(:hydrate).returns(mocked_config)
+
+      mocked_connection = mock
       Mulder::Connection.expects(:new).returns(mocked_connection)
 
       capistrano = described_class.new('foo', 'bar', 'widget')
@@ -31,9 +35,11 @@ describe Mulder::Capistrano do
     end
 
     it 'returns the private ips for the client' do
-      mocked_connection = mock
       mocked_config = mock
-      Mulder::Config.expects(:from).returns(mocked_config)
+      Isomer::Sources::Yaml.expects(:new)
+      Isomer::Configuration.expects(:hydrate).returns(mocked_config)
+
+      mocked_connection = mock
       Mulder::Connection.expects(:new).returns(mocked_connection)
 
       capistrano = described_class.new('foo', 'bar', 'widget')

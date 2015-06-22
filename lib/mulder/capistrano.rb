@@ -4,7 +4,7 @@ module Mulder
   class Capistrano
 
     def initialize(config_file, application, environment)
-      config       = ::Mulder::Config.from(:yaml, file: config_file)
+      config       = Isomer::Configuration.hydrate(Mulder::CONFIG, Isomer::Sources::Yaml.new(config_file))
       @connection  = ::Mulder::Connection.new(config)
       @application = application
       @environment = environment
