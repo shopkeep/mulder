@@ -9,7 +9,7 @@ module Mulder
   require_relative 'mulder/version'
 
   def self.search(app, env, role, format, config_file)
-    config     = Mulder::Config.from(:yaml, file: config_file)
+    config     = Isomer::Configuration.hydrate(Mulder::CONFIG, Isomer::Sources::Yaml.new(config_file))
     connection = Mulder::Connection.new(config)
     client     = Mulder::Client.new(connection, app, env, role)
     instances  = client.instances
