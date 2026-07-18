@@ -4,8 +4,10 @@ describe Mulder do
 
   describe '.search' do
     it 'uses the human formatter for the given params' do
+      mock_source = mock
+      Isomer::Sources::Yaml.expects(:new).with('config/aws.yml').returns(mock_source)
       mock_config = mock
-      Mulder::Config.expects(:from).with(:yaml, file: 'config/aws.yml').returns(mock_config)
+      Isomer::Configuration.expects(:hydrate).with(Mulder::CONFIG, mock_source).returns(mock_config)
 
       mock_connection = stub
       Mulder::Connection.expects(:new).with(mock_config).returns(mock_connection)

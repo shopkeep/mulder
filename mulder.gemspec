@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '~> 0.7.1'
 
   spec.add_dependency 'fog', '~> 1.20.0'
-  spec.add_dependency 'isomer', '~> 0.1.3'
+  spec.add_dependency 'isomer', '~> 0.2', '>= 0.2.2' # Ensure we have the 0.2.2 bug fix
   spec.add_dependency 'thor', '~> 0.19.1'
   spec.add_dependency 'awesome_print', '~> 1.1.0'
   spec.add_dependency 'unf', '~> 0.1.4'
